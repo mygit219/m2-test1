@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/hdfs
+http://www.mulesoft.org/schema/mule/hdfs/current/mule-hdfs.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d62d3c40-1b9b-4685-b5c4-f2a3ce0c2ed6" >
+		<http:listener-connection host="0.0.0.0" port="8083" />
+	</http:listener-config>
+	<flow name="m2-test1Flow" doc:id="f6a25437-84df-4e09-a9b6-bf5af2306f60" >
+		<http:listener doc:name="Listener" doc:id="89522b38-0782-4b1e-a1ed-176970928016" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="54770404-9a48-461b-b790-3cea8d760a5a" message="Good Morning Abdalla!."/>
+	</flow>
+</mule>
